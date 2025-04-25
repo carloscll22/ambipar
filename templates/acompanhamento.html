@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><title>Acompanhamento</title></head>
+<body style="text-align: center;">
+  <h2>Relatório de Alunos Matriculados</h2>
+  {% for curso in cursos %}
+    <h3>{{ curso.nome }}</h3>
+    <table border="1" style="margin: 0 auto;">
+      <tr>
+        <th>Aluno</th>
+        <th>Tempo com conteúdo (min)</th>
+        <th>Status</th>
+      </tr>
+      {% for aluno in matriculas if aluno['curso'] == curso.nome %}
+        <tr>
+          <td>{{ aluno['aluno'] }}</td>
+          <td>{{ curso.get('progresso', {}).get(aluno['aluno'], {}).get('tempo', '---') }}</td>
+          <td>
+            {% if curso.get('progresso', {}).get(aluno['aluno'], {}).get('concluido') %}
+              Concluído
+            {% else %}
+              Em andamento
+            {% endif %}
+          </td>
+        </tr>
+      {% endfor %}
+    </table><br>
+  {% endfor %}
+  <a href="/">Voltar</a>
+</body>
+</html>

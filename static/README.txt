@@ -1,0 +1,1 @@
+Arquivos estáticos de cursos.

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><title>Matricular Aluno</title></head>
+<body style="text-align: center;">
+  <h2>Matricular Aluno em Curso</h2>
+  <form method="post">
+    Aluno:
+    <select name="aluno">
+      {% for aluno in alunos %}
+        <option value="{{ aluno }}">{{ aluno }}</option>
+      {% endfor %}
+    </select><br><br>
+    Curso:
+    <select name="curso">
+      {% for curso in cursos %}
+        <option value="{{ curso.nome }}">{{ curso.nome }}</option>
+      {% endfor %}
+    </select><br><br>
+    <input type="submit" value="Matricular">
+  </form>
+  <a href="/">Voltar</a>
+</body>
+</html>

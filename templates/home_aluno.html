@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><title>Área do Aluno</title></head>
+<body style="text-align: center;">
+  <h2>Bem-vindo, {{ usuario }}</h2>
+  <h3>Seus Cursos:</h3>
+  {% for curso in cursos %}
+    <div>
+      <strong>{{ curso.nome }}</strong> - {{ curso.carga_horaria }}h - {{ curso.tipo }}<br>
+      <a href="{{ url_for('ver_material', nome=curso.nome) }}">Ver material</a>
+    </div><br>
+  {% endfor %}
+  <a href="/logout">Sair</a>
+</body>
+</html>
